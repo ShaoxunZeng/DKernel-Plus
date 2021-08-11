@@ -1,5 +1,5 @@
 #!/bin/bash
 
-echo -e "file ./kernel/kernel-5.13.sym\n\
+echo -e "file $3\n\
 gdb-remote 1234\n\
 settings set target.source-map $1 $2" > .lldbinit

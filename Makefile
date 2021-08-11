@@ -20,6 +20,10 @@ LINUX-SOURCE-PATH := /Users/cengshaoxun/Programs/linux-5.13.8
 # which is like /home/zsx/linux-5.13/init/main.c
 LINUX-BUILD-PATH := /home/zsx/linux-5.13
 
+# **NOTE**: extract symbol file from kernel image using:
+# objcopy --only-keep-debug vmlinux kernel.sym
+LINUX-SYMBOL-FILE := ./kernel/kernel-5.13.sym
+
 LLDB := lldb
 
 GDB := gdb
@@ -41,9 +45,11 @@ QEMU-OPTIONS-GRAPHIC := \
 	-display default,show-cursor=on \
 	-vga virtio \
 
-QEMU-OPTIONS-UBUNTU-CDROM := -cdrom ubuntu-18.04-desktop-amd64.iso
+QEMU-OPTIONS-UBUNTU-CDROM := -cdrom $(UBUNTU-ISO)
 
 QEMU-OPTIONS-UBUNTU-INSTALL := $(QEMU-OPTIONS-NORMAL) $(QEMU-OPTIONS-GRAPHIC) $(QEMU-OPTIONS-UBUNTU-CDROM) $(QEMU-OPTIONS-ACCELERATION)
+
+QEMU-OPTIONS-UBUNTU-START := $(QEMU-OPTIONS-NORMAL) $(QEMU-OPTIONS-GRAPHIC) $(QEMU-OPTIONS-ACCELERATION)
 
 QEMU-OPTIONS-NO-GRAPHIC := -nographic -serial mon:stdio
 
@@ -72,6 +78,9 @@ ubuntu-iso: FORCE
 ubuntu-install: FORCE
 	$(QEMU) $(QEMU-OPTIONS-UBUNTU-INSTALL)
 
+ubuntu-start: FORCE
+	$(QEMU) $(QEMU-OPTIONS-UBUNTU-START)
+
 # start costomized kernel, after make ubuntu-install, you could use any command just like using ubuntu
 linux-start: FORCE
 	$(QEMU) $(QEMU-OPTIONS-LINUX-START)
@@ -89,7 +98,7 @@ lldb: FORCE
 	Error: There is a .lldbinit file in the current directory which is not being read. \n \
 	To silence this warning without sourcing in the local .lldbinit, run: \n \
 	echo \"settings set target.load-cwd-lldbinit true\" >> ~/.lldbinit"
-	sudo ./scripts/lldb-conf.sh $(LINUX-BUILD-PATH) $(LINUX-SOURCE-PATH)
+	sudo ./scripts/lldb-conf.sh $(LINUX-BUILD-PATH) $(LINUX-SOURCE-PATH) $(LINUX-SYMBOL-FILE)
 	$(LLDB)
 
 gdb:
