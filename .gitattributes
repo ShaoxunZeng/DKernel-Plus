@@ -1,0 +1,4 @@
+kernel filter=lfs diff=lfs merge=lfs -text
+kernel/initrd.img-5.13.0 filter=lfs diff=lfs merge=lfs -text
+kernel/kernel-5.13.sym filter=lfs diff=lfs merge=lfs -text
+kernel/vmlinuz-5.13.0 filter=lfs diff=lfs merge=lfs -text
