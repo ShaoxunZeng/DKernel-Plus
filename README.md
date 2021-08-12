@@ -117,7 +117,7 @@ Write `lauch.json` as following.
     "request": "custom",
     "targetCreateCommands": ["target create Your LINUX-SYMBOL-FILE(absolute path)"],
     "processCreateCommands": ["gdb-remote 1234"],
-    "sourceMap": {"Your LINUX-BUILD-PATH" : "Your LINUX-BUILD-PATH"}
+    "sourceMap": {"Your LINUX-BUILD-PATH" : "Your LINUX-SOURCE-PATH"}
 }
 ```
 
