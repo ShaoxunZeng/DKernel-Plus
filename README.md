@@ -14,6 +14,8 @@ This tutorial describes how to set up a linux kernel debug environment on macos,
 
 4. [Optional] Visualization. For example, using same vscode extensions to directly set breakpoints in the source code line.
 
+![vscode](./vscode-debug.png)
+
 ## How to do
 
 The most intuitive way is to boot a linux kernel on QEMU, and use GDB or LLDB to debug it. We compile a linux kernel we want, start it on QEMU, and lauch GDB or LLDB, then we set breakpoint samewhere like `start_kernel`, and make single step executions to watch how the whole systems up.
