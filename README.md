@@ -26,6 +26,12 @@ So this tutorial follows another way: boot an Ubuntu image on QEMU with a given 
 
 The repo contains same scripts and a pre-build linux kernel to demonstrate how to make it happen. The following parts works fine on macos Big Sur 11.4, if you're using linux, it requires only some mild changes to the scripts.
 
+### Clone
+
+```shell
+git lfs clone https://github.com/ShaoxunZeng/DKernel-Plus.git
+```
+
 ### Prerequisite
 
 The scripts requires `docker` and `qemu` to run, you can install them using `homebrew` (on macos).
