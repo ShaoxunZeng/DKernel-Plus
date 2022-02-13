@@ -12,9 +12,12 @@ This tutorial describes how to set up a linux kernel debug environment on macos,
 
 3. [Optional] Do all the stuffs in macos. If you're using linux instead, then it is even simpler to set whole things up.
 
-4. [Optional] Visualization. For example, using same vscode extensions to directly set breakpoints in the source code line.
+4. [Optional] Visualization. For example, using same vscode extensions or CLion to directly set breakpoints in the source code line.
 
 ![vscode](./vscode-debug.png)
+
+![CLion](clion-debug-demo.jpg)
+
 
 ## How to do
 
@@ -120,8 +123,17 @@ Write `lauch.json` as following.
     "sourceMap": {"Your LINUX-BUILD-PATH" : "Your LINUX-SOURCE-PATH"}
 }
 ```
-
 Run `make linux-debug` and click the `Debug` in VSCode, you should see the magic happens.
+
+
+### Visualization using CLion
+
+Download CLion from <https://www.jetbrains.com/clion/>. Add configuration as below: 
+
+![setting](clion-debug-setting.png)
+
+Run `make linux-debug` and click the `Debug` in CLion, you should see the magic happens.
+
 
 ## Compile kernel
 
