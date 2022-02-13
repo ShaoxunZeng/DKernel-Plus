@@ -121,6 +121,24 @@ Write `lauch.json` as following.
 }
 ```
 
+![vscode debug demo](vscode-debug.png)
+
+
+### Visualization using CLion
+
+Download CLion from <https://www.jetbrains.com/clion/>
+
+1. Setting
+
+![setting](clion-debug-setting.jpg)
+
+
+2. Debug
+
+![debug](clion-debug-demo.jpg)
+
+
+
 Run `make linux-debug` and click the `Debug` in VSCode, you should see the magic happens.
 
 ## Compile kernel
